@@ -2,15 +2,15 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class DetalhesFilmesPage extends StatelessWidget {
-  final Map<String, dynamic> servico;
+  final Map<String, dynamic> filme;
 
-  const DetalhesFilmesPage({super.key, required this.servico});
+  const DetalhesFilmesPage({super.key, required this.filme});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(servico['titulo']),
+        title: Text(filme['Title']),
         backgroundColor: Colors.white,
         centerTitle: true,
       ),
@@ -18,7 +18,7 @@ class DetalhesFilmesPage extends StatelessWidget {
       body: Column(
         children: [
           Image.network(
-            servico['fotos'][0]['imagem'],
+            filme['Images'][0],
             height: 250,
             width: double.infinity,
             fit: BoxFit.cover,
@@ -27,7 +27,7 @@ class DetalhesFilmesPage extends StatelessWidget {
             height: 20,
           ),
           Text(
-            (servico['titulo']),
+            (filme['Title']),
             style: const TextStyle(
               fontSize: 24,
               fontWeight: FontWeight.bold,
@@ -36,23 +36,24 @@ class DetalhesFilmesPage extends StatelessWidget {
           const SizedBox(
             height: 10,
           ),
-          Text(servico['descricao']),
+          Text(filme['Plot']),
           const SizedBox(
             height: 10,
           ),
-          Text(
-            'R\$ ${double.parse(servico['valor']).toStringAsFixed(2)}',
-            style: const TextStyle(
-                fontSize: 18,
-                fontWeight: FontWeight.bold,
-                color: Colors.orange),
-          ),
           const Divider(),
-          Text("Endereço: ${servico['endereco']}"),
-          Text("Bairro: ${servico['bairro']}"),
-          Text("CEP: ${servico['cep']}"),
-          Text("Telefone: 14-${servico['telefone']}"),
-          Text("Celular: ${servico['celular']}"),
+          Text("Ano: ${filme['Year']}"),
+          Text("Lançado: ${filme['Released']}"),
+          Text("duração: ${filme['Runtime']}"),
+          Text("Gênero: 14-${filme['Genre']}"),
+          Text("Escritor(a): ${filme['Writer']}"),
+          Text("Atores: ${filme['Actors']}"),
+          Text("Linguagem: ${filme['Language']}"),
+          Text("País: ${filme['Country']}"),
+          Text("Prêmios: ${filme['Awards']}"),
+          Text("Pontuação: ${filme['Metascore']}"),
+          Text("Avaliação imdb: ${filme['imdbRating']}"),
+          Text("Votos imdb: ${filme['imdbVotes']}"),
+          Text("ID imdb: ${filme['imdbID']}"),
           const SizedBox(
             height: 10,
           ),

@@ -23,8 +23,8 @@ class _HomePageState extends State<HomePage> {
 
   Future<void> listaServicos() async {
     try {
-      final Response =
-          await http.get(Uri.parse('http://10.56.45.22/public/api/servicos'));
+      final Response = await http.get(Uri.parse(
+          'https://gist.githubusercontent.com/saniyusuf/406b843afdfb9c6a86e25753fe2761f4/raw/523c324c7fcc36efab8224f9ebb7556c09b69a14/Film.JSON'));
 
       if (Response.statusCode == 200) {
         setState(() {
@@ -52,7 +52,7 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text("projetofilmes"),
+        title: const Text("Filmes"),
         centerTitle: true,
         backgroundColor: Colors.white,
       ),
@@ -108,7 +108,7 @@ class _HomePageState extends State<HomePage> {
                       context,
                       MaterialPageRoute(
                         builder: (context) => DetalhesFilmesPage(
-                          servico: servico,
+                          filme: servico,
                         ),
                       ),
                     );
@@ -120,7 +120,7 @@ class _HomePageState extends State<HomePage> {
                     child: Row(
                       children: [
                         Image.network(
-                          servico['fotos'][0]['imagem'],
+                          servico['Images'][0],
                           width: 100,
                           height: 100,
                           fit: BoxFit.cover,
@@ -132,7 +132,7 @@ class _HomePageState extends State<HomePage> {
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
                                 Text(
-                                  servico['titulo'],
+                                  servico['Title'],
                                   style: const TextStyle(
                                     fontSize: 16,
                                     fontWeight: FontWeight.bold,
@@ -140,16 +140,9 @@ class _HomePageState extends State<HomePage> {
                                   textAlign: TextAlign.left,
                                 ),
                                 Text(
-                                  servico['descricao'],
+                                  servico['Plot'],
                                   maxLines: 2,
                                   overflow: TextOverflow.ellipsis,
-                                ),
-                                Text(
-                                  'R\$ ${double.parse(servico['valor']).toStringAsFixed(2)}',
-                                  style: const TextStyle(
-                                    fontSize: 16,
-                                    fontWeight: FontWeight.bold,
-                                  ),
                                 ),
                               ],
                             ),
