@@ -10,11 +10,16 @@ class DetalhesFilmesPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(filme['Title']),
-        backgroundColor: Colors.white,
+        title: Text(
+          filme['Title'],
+          style: const TextStyle(
+            color: Colors.white,
+          ),
+        ),
+        backgroundColor: Colors.black,
         centerTitle: true,
       ),
-      backgroundColor: Colors.white,
+      backgroundColor: Colors.black,
       body: Column(
         children: [
           Image.network(
@@ -29,6 +34,7 @@ class DetalhesFilmesPage extends StatelessWidget {
           Text(
             (filme['Title']),
             style: const TextStyle(
+              color: Colors.white,
               fontSize: 24,
               fontWeight: FontWeight.bold,
             ),
@@ -36,24 +42,97 @@ class DetalhesFilmesPage extends StatelessWidget {
           const SizedBox(
             height: 10,
           ),
-          Text(filme['Plot']),
+          Padding(
+            padding: const EdgeInsets.all(20),
+            child: Text(
+              filme['Plot'],
+              style: const TextStyle(
+                color: Colors.white,
+              ),
+            ),
+          ),
           const SizedBox(
             height: 10,
           ),
           const Divider(),
-          Text("Ano: ${filme['Year']}"),
-          Text("Lançado: ${filme['Released']}"),
-          Text("duração: ${filme['Runtime']}"),
-          Text("Gênero: 14-${filme['Genre']}"),
-          Text("Escritor(a): ${filme['Writer']}"),
-          Text("Atores: ${filme['Actors']}"),
-          Text("Linguagem: ${filme['Language']}"),
-          Text("País: ${filme['Country']}"),
-          Text("Prêmios: ${filme['Awards']}"),
-          Text("Pontuação: ${filme['Metascore']}"),
-          Text("Avaliação imdb: ${filme['imdbRating']}"),
-          Text("Votos imdb: ${filme['imdbVotes']}"),
-          Text("ID imdb: ${filme['imdbID']}"),
+          Text(
+            "Ano: ${filme['Year']}",
+            style: const TextStyle(
+              color: Colors.white,
+            ),
+          ),
+          Text(
+            "Lançado: ${filme['Released']}",
+            style: const TextStyle(
+              color: Colors.white,
+            ),
+          ),
+          Text(
+            "duração: ${filme['Runtime']}",
+            style: const TextStyle(
+              color: Colors.white,
+            ),
+          ),
+          Text(
+            "Gênero: 14-${filme['Genre']}",
+            style: const TextStyle(
+              color: Colors.white,
+            ),
+          ),
+          Text(
+            "Escritor(a): ${filme['Writer']}",
+            style: const TextStyle(
+              color: Colors.white,
+            ),
+          ),
+          Text(
+            "Atores: ${filme['Actors']}",
+            style: const TextStyle(
+              color: Colors.white,
+            ),
+          ),
+          Text(
+            "Linguagem: ${filme['Language']}",
+            style: const TextStyle(
+              color: Colors.white,
+            ),
+          ),
+          Text(
+            "País: ${filme['Country']}",
+            style: const TextStyle(
+              color: Colors.white,
+            ),
+          ),
+          Text(
+            "Prêmios: ${filme['Awards']}",
+            style: const TextStyle(
+              color: Colors.white,
+            ),
+          ),
+          Text(
+            "Pontuação: ${filme['Metascore']}",
+            style: const TextStyle(
+              color: Colors.white,
+            ),
+          ),
+          Text(
+            "Avaliação imdb: ${filme['imdbRating']}",
+            style: const TextStyle(
+              color: Colors.white,
+            ),
+          ),
+          Text(
+            "Votos imdb: ${filme['imdbVotes']}",
+            style: const TextStyle(
+              color: Colors.white,
+            ),
+          ),
+          Text(
+            "ID imdb: ${filme['imdbID']}",
+            style: const TextStyle(
+              color: Colors.white,
+            ),
+          ),
           const SizedBox(
             height: 10,
           ),

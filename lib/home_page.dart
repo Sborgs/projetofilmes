@@ -11,24 +11,24 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  List<dynamic> servicos = [];
+  List<dynamic> filmes = [];
 
   bool isloading = true;
 
   @override
   void initState() {
     super.initState();
-    listaServicos();
+    listafilmes();
   }
 
-  Future<void> listaServicos() async {
+  Future<void> listafilmes() async {
     try {
       final Response = await http.get(Uri.parse(
           'https://gist.githubusercontent.com/saniyusuf/406b843afdfb9c6a86e25753fe2761f4/raw/523c324c7fcc36efab8224f9ebb7556c09b69a14/Film.JSON'));
 
       if (Response.statusCode == 200) {
         setState(() {
-          servicos = json.decode(Response.body);
+          filmes = json.decode(Response.body);
           isloading = false;
         });
       }
@@ -82,7 +82,7 @@ class _HomePageState extends State<HomePage> {
             ),
             ListTile(
               leading: Icon(Icons.list),
-              title: Text("Serviços"),
+              title: Text("Filmes"),
             ),
             ListTile(
               leading: Icon(Icons.list),
@@ -99,16 +99,16 @@ class _HomePageState extends State<HomePage> {
       body: isloading
           ? const Center(child: CircularProgressIndicator())
           : ListView.builder(
-              itemCount: servicos.length,
+              itemCount: filmes.length,
               itemBuilder: (context, index) {
-                final servico = servicos[index];
+                final filme = filmes[index];
                 return GestureDetector(
                   onTap: () {
                     Navigator.push(
                       context,
                       MaterialPageRoute(
                         builder: (context) => DetalhesFilmesPage(
-                          filme: servico,
+                          filme: filme,
                         ),
                       ),
                     );
@@ -120,7 +120,7 @@ class _HomePageState extends State<HomePage> {
                     child: Row(
                       children: [
                         Image.network(
-                          servico['Images'][0],
+                          filme['Images'][0],
                           width: 100,
                           height: 100,
                           fit: BoxFit.cover,
@@ -132,7 +132,7 @@ class _HomePageState extends State<HomePage> {
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
                                 Text(
-                                  servico['Title'],
+                                  filme['Title'],
                                   style: const TextStyle(
                                     fontSize: 16,
                                     fontWeight: FontWeight.bold,
@@ -140,7 +140,7 @@ class _HomePageState extends State<HomePage> {
                                   textAlign: TextAlign.left,
                                 ),
                                 Text(
-                                  servico['Plot'],
+                                  filme['Plot'],
                                   maxLines: 2,
                                   overflow: TextOverflow.ellipsis,
                                 ),
